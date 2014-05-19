@@ -1,0 +1,5 @@
+# we don’t want our vim temps running around in git
+*.swp
+*.swo
+# OSX specific ignores..
+.DS_Store
