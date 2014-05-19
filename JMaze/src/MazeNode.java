@@ -15,6 +15,10 @@ public class MazeNode {
 	 * The constructor
 	 */
 	public MazeNode(int x, int y) {
+		NORTH = false;
+		EAST = false;
+		SOUTH = false;
+		WEST = false;
 		this.position = new Point(x,y);
 	}
 	
@@ -26,8 +30,12 @@ public class MazeNode {
 		return this.position;
 	}
 	
-	public void addConnection(MazeNode node, int direction) {
-		
+	public void addConnection(int direction) {
+		if (direction == 0) NORTH = true;
+		if (direction == 1) EAST = true;
+		if (direction == 2) SOUTH = true;
+		if (direction == 3) WEST = true;
+
 	}
 	
 	public boolean isConnected() {
@@ -35,6 +43,8 @@ public class MazeNode {
 	}
 	
 	private Point position; //the position of the node in the maze
-	private MazeNode[] connections;
-	
+	private boolean NORTH; // 0
+	private boolean EAST; // 1
+	private boolean SOUTH; //2
+	private boolean WEST; //3
 }
