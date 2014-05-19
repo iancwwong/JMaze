@@ -86,6 +86,8 @@ public class MazeGraph {
 		return this.size;
 	}
 	
+	
+	//CAN WE PLEASE FIX THIS!?!!?
 	private static final int EASY = 1;
 	private static final int MEDIUM = 2;
 	private static final int HARD = 3;
