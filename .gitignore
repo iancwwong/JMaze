@@ -3,3 +3,8 @@
 *.swo
 # OSX specific ignores..
 .DS_Store
+# because of ryan
+org.eclipse.jdt.core.prefs
+.settings/
+.classpath
+.project
