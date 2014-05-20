@@ -1,0 +1,84 @@
+/**
+ * GUI version of the main menu for the program
+ */
+import java.awt.BorderLayout;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
+
+public class MazeMenu extends JFrame {
+
+	/**
+	 * The constructor method
+	 */
+	public MazeMenu(MazeGraph m) {
+		this.maze = m;
+
+		JFrame frame = new JFrame();
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		//Make the title
+		JLabel title = new JLabel(new ImageIcon("mazeTitle.jpg"));
+		
+        JPanel mazeTitle = new JPanel();
+        mazeTitle.add(title);
+
+        //Make the player and maze details entry fields
+		final JLabel playerName = new JLabel("Player Name: ");
+		final JTextArea nameField = new JTextArea(1,10);
+		
+		final JLabel difficulty = new JLabel("Choose Difficulty: ");
+		String[] diffStrings = { "Easy", "Medium", "Hard"};
+		final JComboBox difficultyChoice = new JComboBox(diffStrings);
+		
+		JPanel namePanel = new JPanel();
+		namePanel.add(playerName);
+		namePanel.add(nameField);
+		JPanel difficultyPanel = new JPanel();
+		difficultyPanel.add(difficulty);
+		difficultyPanel.add(difficultyChoice);
+		
+		//Make the buttons for menu
+		JButton highScoresButton = new JButton("High Scores");
+		JButton optionsButton = new JButton("Options");
+		JButton quitButton = new JButton("Quit");
+		quitButton.addActionListener( 
+			new ActionListener() {
+		        public void actionPerformed(ActionEvent event) {
+		            System.exit(0);
+		        }
+		    }
+		);
+		JButton startButton = new JButton("Start");
+		
+		JPanel buttons = new JPanel();
+		buttons.add(highScoresButton);
+		buttons.add(optionsButton);
+		buttons.add(quitButton);
+		buttons.add(startButton);
+		
+
+		GridLayout layout = new GridLayout(5,5);
+		frame.setLayout(layout);
+		frame.add(mazeTitle);
+		frame.add(namePanel);
+		frame.add(difficultyPanel);
+		frame.add(buttons);
+		
+
+		frame.setSize(500, 500);
+		frame.setVisible(true);
+	}
+
+	private static final long serialVersionUID = 1L;
+	private MazeGraph maze;
+
+}
